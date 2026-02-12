@@ -28,4 +28,4 @@ iot-telemetry-monitor/
 1. Install dependencies: `pip install -r requirements.txt`
 2. Set up environment variables in `.env`
 3. Run locally: `python app.py`
-test
+//test for see in kudu ssh
