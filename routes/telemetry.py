@@ -6,9 +6,12 @@ telemetry_bp = Blueprint('telemetry', __name__, url_prefix='/telemetry')
 # Temporary storage (for testing before database integration)
 telemetry_store = []
 
-@telemetry_bp.route('/', methods=['POST'])
+@telemetry_bp.route('/', methods=['GET', 'POST'], strict_slashes=False)
 def receive_telemetry():
     """Receive telemetry data from IoT devices"""
+    if request.method == 'GET':
+        return jsonify({'status': 'success', 'message': 'Telemetry endpoint is ready. Send POST request with data.'}), 200
+
     try:
         data = request.get_json()
         if data is None:
