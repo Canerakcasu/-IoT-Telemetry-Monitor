@@ -1,6 +1,16 @@
+postman url 
+
+POST
+
+https://caner-web-app-c3fnahd8exacchhu.canadacentral-01.azurewebsites.net/telemetry/
+
+
+
+
+
 {
-  "device_id": "sensor001",
-  "temperature": 55.5,
-  "humidity": 55,
-  "battery": 85
+    "device_id": "test3",
+    "temperature": 25.4,
+    "humidity": 620,
+    "battery": 115
 }
