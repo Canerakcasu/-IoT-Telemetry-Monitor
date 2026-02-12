@@ -3,4 +3,5 @@ pyodbc==4.0.35
 requests==2.31.0
 azure-storage-blob==12.17.0
 gunicorn==21.2.0
-
+Flask-SQLAlchemy
+psycopg2-binary
