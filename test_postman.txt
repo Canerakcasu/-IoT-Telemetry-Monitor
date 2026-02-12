@@ -1,0 +1,6 @@
+{
+  "device_id": "sensor001",
+  "temperature": 55.5,
+  "humidity": 55,
+  "battery": 85
+}

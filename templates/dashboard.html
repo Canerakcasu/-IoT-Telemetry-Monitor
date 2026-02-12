@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - IoT Telemetry Monitor{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h1>Telemetry Dashboard</h1>
+        <p class="text-muted">Real-time monitoring of IoT sensor data</p>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-8">
+        <!-- placeholder for future filters or summaries -->
+    </div>
+    <div class="col-md-4 text-end">
+        <label for="deviceSelect" class="form-label text-muted">Select device</label>
+        <select id="deviceSelect" class="form-select d-inline-block w-auto">
+            <option value="all">All Devices</option>
+            {% for d in devices %}
+            <option value="{{ d }}">{{ d }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+<div class="dashboard-container">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card chart-card shadow-sm">
+                <div class="card-header">Temperature</div>
+                <div class="card-body">
+                    <canvas id="temperatureChart" height="150"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card chart-card shadow-sm">
+                <div class="card-header">Humidity</div>
+                <div class="card-body">
+                    <canvas id="humidityChart" height="150"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card chart-card shadow-sm">
+                <div class="card-header">Battery Status</div>
+                <div class="card-body">
+                    <canvas id="batteryChart" height="150"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-header">Instructions</div>
+                <div class="card-body">
+                    <p><strong>Postman Test:</strong></p>
+                    <code class="bg-light p-2 d-block mb-3">POST http://127.0.0.1:5000/telemetry/</code>
+                    <p class="text-muted">Send JSON data with device_id, temperature, humidity, and battery fields.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='chart.js') }}"></script>
+{% endblock %}

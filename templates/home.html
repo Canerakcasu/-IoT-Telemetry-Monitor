@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Home - IoT Telemetry Monitor{% endblock %}
+
+{% block content %}
+<div class="row mb-5">
+    <div class="col-lg-8">
+        <h1>Welcome to IoT Telemetry Monitor</h1>
+        <p class="lead text-muted">Real-time monitoring and management of your IoT devices</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-4 mb-3">
+        <div class="card text-center">
+            <div class="card-body p-4">
+                <h3 class="text-primary mb-2">{{ device_count }}</h3>
+                <p class="text-muted">Total Devices</p>
+                <a href="/devices/" class="btn btn-sm btn-primary">View Devices</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card text-center">
+            <div class="card-body p-4">
+                <h3 class="text-primary mb-2">{{ telemetry_count }}</h3>
+                <p class="text-muted">Data Points</p>
+                <a href="/dashboard/" class="btn btn-sm btn-primary">View Dashboard</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card text-center">
+            <div class="card-body p-4">
+                <h3 class="text-success mb-2">Active</h3>
+                <p class="text-muted">System Status</p>
+                <span class="badge bg-success">Running</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">Quick Start</div>
+            <div class="card-body">
+                <h5>1. Add a Device</h5>
+                <p class="text-muted small">Go to the Devices page and register your IoT device with a unique ID.</p>
+                <h5 class="mt-3">2. Send Telemetry Data</h5>
+                <p class="text-muted small">Use Postman to send JSON data to the telemetry API endpoint.</p>
+                <h5 class="mt-3">3. View Dashboard</h5>
+                <p class="text-muted small">Monitor real-time data from your devices on the dashboard.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">API Endpoint</div>
+            <div class="card-body">
+                <p><strong>POST Telemetry:</strong></p>
+                <code class="bg-light p-2 d-block mb-3">POST /telemetry/</code>
+                <p class="small text-muted">Send device telemetry data (temperature, humidity, battery)</p>
+                
+                <p class="mt-3"><strong>Example JSON:</strong></p>
+                <pre class="bg-light p-2" style="font-size: 0.85rem; overflow-x: auto;">{
+  "device_id": "sensor001",
+  "temperature": 25.5,
+  "humidity": 55,
+  "battery": 85
+}</pre>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

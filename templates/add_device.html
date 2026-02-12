@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Add Device - IoT Telemetry Monitor{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card shadow">
+            <div class="card-header">
+                <h3 class="mb-0">Add New Device</h3>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="device_id" class="form-label">Device ID</label>
+                        <input type="text" class="form-control form-control-lg" id="device_id" name="device_id" 
+                               placeholder="e.g., sensor001" required>
+                        <small class="text-muted">Unique identifier for the device</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Device Name</label>
+                        <input type="text" class="form-control form-control-lg" id="name" name="name" 
+                               placeholder="e.g., Temperature Sensor" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control form-control-lg" id="location" name="location" 
+                               placeholder="e.g., Server Room" required>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-lg btn-primary">Create Device</button>
+                        <a href="/devices/" class="btn btn-lg btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
